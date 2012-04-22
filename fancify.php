@@ -11,7 +11,6 @@
 
     $type = $_POST["type"];
     $input = $_POST["input"];
-    $use_twitter = 
     $result = "";
 
     /* fancify */
