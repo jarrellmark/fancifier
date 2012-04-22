@@ -15,8 +15,5 @@ $(document).ready(function(){
 	  
 	  return false;
 	});
-	
-	function HandleResponse
-	
 });
 -->
