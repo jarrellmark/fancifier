@@ -5,14 +5,16 @@ $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667
 function tts($sentence)
 {
 //     unlink("./combined.mp3");
+//     $sentence = str_replace(" ","+",$sentence);
      $fragment = array();
-     $tmp = explode(" ",$sentence); 
+     $tmp = explode(" ",$sentence);
+
      $tmp_ = ""; 
      $last_word = "";
      foreach ($tmp as $value) { 
           $tmp_.= "$value "; 
           $last_word = $value;
-          if (strlen($tmp_) > 100) { 
+          if (strlen($tmp_) > 10) { 
                $last_tmp_.= ""; 
                array_push($fragment, $last_tmp_);
                $tmp_ = $last_word." ";
@@ -21,16 +23,18 @@ function tts($sentence)
           $last_tmp_ = $tmp_; 
      } 
      array_push($fragment, $last_tmp_);
-     foreach ($fragment as &$value)
+     $tempy = array();
+     foreach($fragment as $value)
      {
-          $value = str_replace(" ","+",$value);
-          $value = str_replace("#","+",$value);
+          array_push($tempy,str_replace(" ","+",$value));
      }
+
 
 //     $sentence = str_replace(" ","+",$sentence);
      $name = 0;
-     foreach($fragment as $value)
+     foreach($tempy as $value)
      {
+
           $url = "http://translate.google.com/translate_tts?tl=en&q=".$value;
           if ($name == 0)
                $fp = fopen("./combined.mp3","w");
@@ -61,7 +65,7 @@ function tts($sentence)
      }
 }
 
-
+tts("this is a really long sentence.  I hope that it works.  Good luck to everybody else.  Maybe it might not work?");
 function callThesaurus($word)
 {
      $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667fc0/";
