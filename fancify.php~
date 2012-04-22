@@ -1,7 +1,7 @@
 <?php
 
     include("fancy.php");
-
+include("getTwitter.php");
     /*
     if (!isset($_POST["type"])
         $_POST["type"] = "undefined";
@@ -11,8 +11,9 @@
 
     $type = $_POST["type"];
     $input = $_POST["input"];
+$input = getTwitterPost();
     $result = "";
-tts($input);
+
     /* fancify */
     if (strcmp($type, "fancify") == 0)
     {
@@ -34,7 +35,7 @@ tts($input);
     {
         $result .= getGangster($input, "pimp"); 
     }
-
+tts($result);
     echo $result;
 
     function isPunctuation($word)

@@ -19,8 +19,7 @@ $(document).ready(function(){
       type: "POST",
       url: "twitter.php",
       success: function(response){
-        //$('#text').value(response);
-	alert(response);
+        $('#text').value(response);
       }
     });
   });
