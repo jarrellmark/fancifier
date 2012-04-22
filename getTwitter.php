@@ -3,8 +3,10 @@
 		$input = "cats";
 		$twResults = json_decode(file_get_contents("http://search.twitter.com/search.json?q=" .
 				rawurlencode($input) .
-				"&result_type=mixed&count=100&lang=en"));
-		$random = rand(0, 99);
+				"&result_type=mixed&count=20&lang=en"));
+		$random = rand(0, 19);
 		return $twResults->results[$random]->text;
+		
 	}
+	//echo getTwitterPost();
 ?>
