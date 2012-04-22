@@ -8,7 +8,6 @@ body{
   background-color: #EEE;
   background: url(images/contentbg.png);
   color: #111;
-  border-top: 5px solid #D7E0E5;
 }
 p {
 }
@@ -53,6 +52,7 @@ p {
   width: 100%;
   padding-top: 15px;
 }
+/*used to clear floats*/
 #leftCol {
   height: 200px;
   width: 425px;
@@ -60,7 +60,7 @@ p {
   float: left;
   text-align: right;
 }
-button { 
+#button { 
   padding: 5px 10px;
   border: 1px solid #D84704;
   box-shadow: 1px 1px 1px #888;
