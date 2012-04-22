@@ -6,6 +6,25 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="scripts/request.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#fancify').submit(function() {
+    var input = $('#text').attr('value');
+    var type = $('input:radio[name=fancyType]:checked').val();
+    
+    $.ajax({
+      type: "POST",
+      url: "fancify.php",
+      data: "type=" + type + "&input=" + input,
+      success: function(){
+        alert("success!");
+      }
+    });
+    alert(input + type);
+    return false;
+  });
+});
+</script>
 
 </head>
 <body>
@@ -23,7 +42,7 @@
     <div id="content">
       <div class="innerWrapper">
         <div id="leftCol">
-        <form name="fancify" action="fancify.php" method="POST">
+        <form name="fancify" id="fancify" method="POST">
         <ul>  
           <li><input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify</li>
           <li><input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy</li>

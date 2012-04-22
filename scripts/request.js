@@ -1,12 +1,16 @@
 <!--
 $(document).ready(function(){
 
-   	  var input = $('#text').attr('value'); 
+   	 /* var input = $('#text').attr('value'); 
    	  var type = $('input:radio[name=fancyType]:checked').val();
  	  
  	  alert("success!");
- 	   	  
-      $.ajax({
+*/
+$('#button').submit(function() {
+  alert('Handler for .submit() called.');
+  return false;
+});
+     /* $.ajax({
         type: "POST",
         url:  "fancify.php",
         data: "type=" + type + "&input=" + input,
@@ -16,6 +20,6 @@ $(document).ready(function(){
       });
 	  
 	  return false;
-	});
+	});*/
 });
 -->
