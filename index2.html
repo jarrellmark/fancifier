@@ -14,13 +14,11 @@ $(document).ready(function(){
   $('#mediaContainer').hide();
   
   $('#twitterButton').click(function() {
-    //$.('#mediaContainer').show();
     $.ajax({
       type: "POST",
       url: "twitter.php",
       success: function(response){
-        //$('#text').value(response);
-	alert(response);
+        $('#text').val(response);
       }
     });
   });
@@ -31,6 +29,8 @@ $(document).ready(function(){
     
     $('#rightCol p').empty();
     //$('#rightCol p').append(input);
+    
+    $('#mediaContainer').show();
         
     $.ajax({
       type: "POST",
@@ -43,9 +43,6 @@ $(document).ready(function(){
     return false;
   });
 });
-  function twitterGrab() {
-    alert('hello');
-  }
 </script>
 
 </head>
@@ -62,8 +59,16 @@ $(document).ready(function(){
       </div>
     </div>
     <div id="content">
-      <div class="innerWrapper">
-      <div id="mediaContainer">
+      <div class="innerWrapper">      
+        <div id="leftCol">
+        <form name="fancify" id="fancify" method="POST">
+          <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
+          <input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify
+          <input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy
+          <input type="submit" value="Translate" id="button"/>
+        </form>
+        <button id="twitterButton" type="button">grab from twitter</button>
+        <div id="mediaContainer">
         <div id="mediaplayer"></div>
         <div id="mediaployer"></div>
       </div>
@@ -75,7 +80,7 @@ $(document).ready(function(){
           'width': '300',
           'height': '24',
           'autostart': 'true',
-          'file': 'jwplayer/song.mp3',
+          'file': 'combined.mp3',
           'controlbar': 'bottom'
         });
          jwplayer('mediaployer').setup({
@@ -84,20 +89,10 @@ $(document).ready(function(){
           'width': '300',
           'height': '24',
           'autostart': 'true',
-          'file': 'jwplayer/song2.mp3',
+          'file': 'background.mp3',
           'controlbar': 'bottom'
         });
-        
       </script>
-      
-        <div id="leftCol">
-        <form name="fancify" id="fancify" method="POST">
-          <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
-          <input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify
-          <input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy
-          <input type="submit" value="Translate" id="button"/>
-        </form>
-        <button id="twitterButton" type="button">grab from twitter</button>
         
         </div>
         <div id="rightCol">
