@@ -4,6 +4,22 @@
 <title>The Fancifier</title>
 
 <link rel="stylesheet" href="style.css" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="scripts/request.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.radio').live('click', function(){
+        $('.radio').removeClass('selected');
+        $(this).addClass('selected');
+    });
+    $('input[type=submit]').live('click', function(){
+        var data = { "myRadioValue" : $('.radio.selected').text() };
+        $.post('myurl.com', data, function(result){ 
+            console.log('hooray!', result); 
+        });
+    });
+});
+</script>
 
 </head>
 <body>
@@ -22,11 +38,14 @@
       <div class="innerWrapper">
         <div id="leftCol">
         <form name="fancify" action="#" method="POST">
-          <input type="radio" name="fancyType" value="fancify" CHECKED> Fancify
-          <input type="radio" name="fancyType" value="ghettofy"> Ghettofy
-          <input type="radio" name="fancyType" value="rhymify"> Rhymify
+        <ul>  
+          <li><input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify</li>
+          <li><input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy</li>
+          <li><input type="radio" class="radio" name="fancyType" value="rhymify"> Rhymify</li>
+        </ul>
           <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
           <input type="submit" value="Translate" id="button"/>
+       
         </form>
         </div>
         <div id="rightCol">
