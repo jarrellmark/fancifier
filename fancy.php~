@@ -4,6 +4,7 @@ $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667
 
 function tts($sentence)
 {
+     unlink("./combined.mp3");
      $fragment = array();
      $tmp = explode(" ",$sentence); 
      $tmp_ = ""; 
@@ -23,6 +24,7 @@ function tts($sentence)
      foreach ($fragment as &$value)
      {
           $value = str_replace(" ","+",$value);
+          $value = str_replace("#","+",$value);
      }
 
 //     $sentence = str_replace(" ","+",$sentence);
@@ -126,6 +128,7 @@ function getGangster($sentence, $mode)
      fwrite($fhandle, "<html><body>".$sentence."</body></html>");
      fclose($fhandle);
      $query = "http://www.psyclops.com/translator/translator.cgi?url=http%3A%2F%2Fruslug.rutgers.edu%2F~jeshuang%2Ff%2Ffancifier%2Finfo.html&mode=".$mode;
+//     $query = "http://www.psyclops.com/translator/translator.cgi?url=http%3A%2F%2Fruslug.rutgers.edu%2F~jeshuang%2Ff%2Ffancifier%2Finfo.html&mode=".$mode;
 //     $query = "http://www.psyclops.com/translator/translator.cgi?url=http%3A%2F%2Fruslug.rutgers.edu%2Ffancifier%2Finfo.html&mode=".$mode;
      $data = file_get_contents($query);
      $front = strpos($data, "<bod");

@@ -11,7 +11,7 @@ include("getTwitter.php");
 
     $type = $_POST["type"];
     $input = $_POST["input"];
-$input = getTwitterPost();
+
     $result = "";
 
     /* fancify */
@@ -35,8 +35,10 @@ $input = getTwitterPost();
     {
         $result .= getGangster($input, "pimp"); 
     }
+if (file_exists("combined.mp3"))
+     unlink("combined.mp3");
 tts($result);
-    echo $result;
+echo $result;
 
     function isPunctuation($word)
     {

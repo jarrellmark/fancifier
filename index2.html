@@ -27,23 +27,25 @@ $(document).ready(function(){
   $('#fancify').submit(function() {
     var input = $('#text').attr('value');
     var type = $('input:radio[name=fancyType]:checked').val();
-    
+          $('#mediaContainer').hide();
     $('#rightCol p').empty();
     //$('#rightCol p').append(input);
-    
+
+/*    
     if(type == 'fancify'){
       $('#mediaContainer').hide();
     }
     else{
       $('#mediaContainer').show();
     }
-        
+  */      
     $.ajax({
       type: "POST",
       url: "fancify.php",
       data: "type=" + type + "&input=" + input,
       success: function(response){
         $('#rightCol p').append(response);
+      $('#mediaContainer').show();
       }
     });
     return false;

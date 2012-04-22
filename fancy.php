@@ -4,6 +4,7 @@ $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667
 
 function tts($sentence)
 {
+//     unlink("./combined.mp3");
      $fragment = array();
      $tmp = explode(" ",$sentence); 
      $tmp_ = ""; 
@@ -23,6 +24,7 @@ function tts($sentence)
      foreach ($fragment as &$value)
      {
           $value = str_replace(" ","+",$value);
+          $value = str_replace("#","+",$value);
      }
 
 //     $sentence = str_replace(" ","+",$sentence);
