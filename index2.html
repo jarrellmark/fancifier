@@ -11,7 +11,9 @@ $(document).ready(function(){
   $('#fancify').submit(function() {
     var input = $('#text').attr('value');
     var type = $('input:radio[name=fancyType]:checked').val();
-        
+    
+    $('#rightCol p').empty();
+       
     $.ajax({
       type: "POST",
       url: "fancify.php",
