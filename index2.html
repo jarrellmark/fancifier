@@ -5,9 +5,13 @@
 
 <link rel="stylesheet" href="style.css" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type='text/javascript' src='jwplayer/jwplayer.js'></script>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
+  $('#mediaplayer').css("left","-2000px");
+  
   $('#fancify').submit(function() {
     var input = $('#text').attr('value');
     var type = $('input:radio[name=fancyType]:checked').val();
@@ -43,6 +47,31 @@ $(document).ready(function(){
     </div>
     <div id="content">
       <div class="innerWrapper">
+      <!--<div id="mediaplayer"></div>
+      <div id="mediaployer"></div>-->
+
+<script type="text/javascript">
+  jwplayer('mediaplayer').setup({
+    'flashplayer': 'jwplayer/player.swf',
+    'id': 'playerID',
+    'width': '560',
+    'height': '24',
+    'autostart': 'true',
+    'file': 'jwplayer/song.mp3',
+    'controlbar': 'bottom'
+  });
+   jwplayer('mediaployer').setup({
+    'flashplayer': 'jwplayer/player.swf',
+    'id': 'playerID',
+    'width': '560',
+    'height': '24',
+    'autostart': 'true',
+    'file': 'jwplayer/song2.mp3',
+    'controlbar': 'bottom'
+  });
+  
+</script>
+      
         <div id="leftCol">
         <form name="fancify" id="fancify" method="POST">
           <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
