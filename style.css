@@ -62,6 +62,7 @@ p {
 }
 #button { 
   padding: 5px 10px;
+  margin-top: 10px;
   border: 1px solid #D84704;
   box-shadow: 1px 1px 1px #888;
   color: #FFF;
