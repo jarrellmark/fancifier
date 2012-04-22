@@ -17,7 +17,7 @@ $(document).ready(function(){
       url: "fancify.php",
       data: "type=" + type + "&input=" + input,
       success: function(response){
-        alert(response);
+        $('#translation').val(response);
       }
     });
     return false;
