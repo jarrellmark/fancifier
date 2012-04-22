@@ -14,7 +14,7 @@ function tts($sentence)
      foreach ($tmp as $value) { 
           $tmp_.= "$value "; 
           $last_word = $value;
-          if (strlen($tmp_) > 10) { 
+          if (strlen($tmp_) > 100) { 
                $last_tmp_.= ""; 
                array_push($fragment, $last_tmp_);
                $tmp_ = $last_word." ";
