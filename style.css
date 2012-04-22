@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
 }
-@import url(http://fonts.googleapis.com/css?family=Dosis|Great+Vibes);
+@font-face{
+  url(http://fonts.googleapis.com/css?family=Dosis|Great+Vibes);
+}
 body{
   font: 100% Arial normal, sans-serif;
   background-color: #F8F8F8;
@@ -25,7 +27,7 @@ p {
   text-align: center;
 }
 #header h1 {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Great Vibes', sans-serif;
   font-size: 4em;
   color: #FFF;
   text-shadow: -1px -1px #333;
