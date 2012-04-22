@@ -11,13 +11,13 @@ $(document).ready(function(){
   $('#fancify').submit(function() {
     var input = $('#text').attr('value');
     var type = $('input:radio[name=fancyType]:checked').val();
-    
+        
     $.ajax({
       type: "POST",
       url: "fancify.php",
       data: "type=" + type + "&input=" + input,
       success: function(response){
-        $('#translation').val(response);
+        $('#rightCol p').append(response);
       }
     });
     return false;
@@ -51,7 +51,7 @@ $(document).ready(function(){
         </form>
         </div>
         <div id="rightCol">
-          <textarea rows="20" cols="50" id="translation" placeholder="fancy text!"></textarea>
+          <p></p>
         </div>
       </div>
     </div>
