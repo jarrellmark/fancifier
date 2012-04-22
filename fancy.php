@@ -6,7 +6,11 @@ function callThesaurus($word)
      $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667fc0/";
 
      $request = $api_request.$word."/php";
-     $data = file_get_contents($request);
+     $data = @file_get_contents($request);
+     if (strlen($data) == 0)
+     {
+        return NULL;
+     }
      return unserialize($data);
 
 }
@@ -15,6 +19,10 @@ function callThesaurus($word)
 function getFancySynonym($word)
 {
      $data = callThesaurus($word);
+     if (is_null($data) == TRUE)
+     {
+         return $word;
+     }
      $pos = array_keys($data);
      $syn = array();
      foreach($data as $key => $value)
@@ -54,6 +62,9 @@ function getFancyAnt($word)
 
 function getGangster($sentence, $mode)
 {
+  /* i got an error from opening the file for writing,
+     so for now i just commented it out */
+  /*
      $file = "info.html";
      $fhandle = fopen($file, 'w') or die("cannot open file\n");
      fwrite($fhandle, "<html><body>".$sentence."</body></html>");
@@ -64,6 +75,7 @@ function getGangster($sentence, $mode)
      $end = strpos($data, "</bod");
      $result = substr($data, $front+7, $end-$front-7);
      print_r($result);
+     */
 }
 
 getGangster("testing out this function.  This is my world, and I want to do my own thing.  Mr. Satterfield is hacking some code tonight at a hackathon", "pimp");
