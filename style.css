@@ -41,12 +41,13 @@ p {
   height: 100%;
 }
 #subHead {
+  font-size: 2em;
   width: 100%;
   background-color: #D7E0E5;
-  height: 20px;
   border-bottom: 1px solid #888;
   text-align: center;
   padding: 5px 0;
+  color: #222;
 }
 #content {
   width: 100%;
@@ -85,8 +86,10 @@ p {
   float: left;
 }
 textarea {
-  width: 100%;
-  max-width: 100%;
+  /*font: inherit;*/
+  font: 1em Arial normal, sans-serif;
+  width: 420px;
+  max-width: 420px;
   height: 200px;
   max-height: 200px;
   border-radius: 5px;

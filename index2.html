@@ -13,6 +13,7 @@ $(document).ready(function(){
     var type = $('input:radio[name=fancyType]:checked').val();
     
     $('#rightCol p').empty();
+    $('#rightCol p').append(input);
        
     $.ajax({
       type: "POST",
