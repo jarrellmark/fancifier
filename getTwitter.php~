@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 	function getTwitterPost(){
 		$input = "cats";
 		$twResults = json_decode(file_get_contents("http://search.twitter.com/search.json?q=" .
@@ -9,4 +10,16 @@
 		
 	}
 	//echo getTwitterPost();
+=======
+function getTwitterPost(){
+     $input = "cats";
+     $twResults = json_decode(file_get_contents("http://search.twitter.com/search.json?q=" .
+                                                rawurlencode($input) .
+                                                "&result_type=mixed&count=20&lang=en"));
+     $random = rand(0, 19);
+     return $twResults->results[$random]->text;
+     
+}
+
+>>>>>>> 5a86949c1ac6ef13f74ff74a4f3e3c65ad4d2c99
 ?>

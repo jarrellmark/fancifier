@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>The Fancifier</title>
+
+<link rel="stylesheet" href="style.css" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type='text/javascript' src='jwplayer/jwplayer.js'></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  //$('#mediaplayer').css("left","-2000px");
+  $('#mediaContainer').hide();
+  
+  $('#twitterButton').click(function() {
+    //$.('#mediaContainer').show();
+    $.ajax({
+      type: "POST",
+      url: "twitter.php",
+      success: function(response){
+        $('#text').value(response);
+      }
+    });
+  });
+  
+  $('#fancify').submit(function() {
+    var input = $('#text').attr('value');
+    var type = $('input:radio[name=fancyType]:checked').val();
+    
+    $('#rightCol p').empty();
+    //$('#rightCol p').append(input);
+        
+    $.ajax({
+      type: "POST",
+      url: "fancify.php",
+      data: "type=" + type + "&input=" + input,
+      success: function(response){
+        $('#rightCol p').append(response);
+      }
+    });
+    return false;
+  });
+});
+  function twitterGrab() {
+    alert('hello');
+  }
+</script>
+
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <div class="innerWrapper">
+        <h1><a href="index2.html">The Fancifier</a></h1>
+      </div>
+    </div>
+    <div id="subHead">
+      <div class="innerWrapper">
+        <p>Take your boring text and make it awesome!</p>
+      </div>
+    </div>
+    <div id="content">
+      <div class="innerWrapper">
+      <div id="mediaContainer">
+        <div id="mediaplayer"></div>
+        <div id="mediaployer"></div>
+      </div>
+
+      <script type="text/javascript">
+        jwplayer('mediaplayer').setup({
+          'flashplayer': 'jwplayer/player.swf',
+          'id': 'playerID',
+          'width': '300',
+          'height': '24',
+          'autostart': 'true',
+          'file': 'jwplayer/song.mp3',
+          'controlbar': 'bottom'
+        });
+         jwplayer('mediaployer').setup({
+          'flashplayer': 'jwplayer/player.swf',
+          'id': 'playerID',
+          'width': '300',
+          'height': '24',
+          'autostart': 'true',
+          'file': 'jwplayer/song2.mp3',
+          'controlbar': 'bottom'
+        });
+        
+      </script>
+      
+        <div id="leftCol">
+        <form name="fancify" id="fancify" method="POST">
+          <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
+          <input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify
+          <input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy
+          <input type="submit" value="Translate" id="button"/>
+        </form>
+        <button id="twitterButton" type="button">grab from twitter</button>
+        
+        </div>
+        <div id="rightCol">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

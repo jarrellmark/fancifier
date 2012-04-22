@@ -1,7 +1,7 @@
 <?php
 
     include("fancy.php");
-
+include("getTwitter.php");
     /*
     if (!isset($_POST["type"])
         $_POST["type"] = "undefined";
@@ -11,6 +11,7 @@
 
     $type = $_POST["type"];
     $input = $_POST["input"];
+
     $result = "";
 
     /* fancify */
