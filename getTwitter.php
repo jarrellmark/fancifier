@@ -5,7 +5,7 @@
 				rawurlencode($input) .
 				"&result_type=mixed&count=10&lang=en"));
 		
-		echo $twResults->results[0]->text;
+		return $twResults->results[0]->text;
 			
 	}
 ?>
