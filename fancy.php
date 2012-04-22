@@ -54,6 +54,9 @@ function getFancyAnt($word)
 
 function getGangster($sentence, $mode)
 {
+  /* i got an error from opening the file for writing,
+     so for now i just commented it out */
+  /*
      $file = "info.html";
      $fhandle = fopen($file, 'w') or die("cannot open file\n");
      fwrite($fhandle, "<html><body>".$sentence."</body></html>");
@@ -64,6 +67,7 @@ function getGangster($sentence, $mode)
      $end = strpos($data, "</bod");
      $result = substr($data, $front+7, $end-$front-7);
      print_r($result);
+     */
 }
 
 getGangster("testing out this function.  This is my world, and I want to do my own thing.  Mr. Satterfield is hacking some code tonight at a hackathon", "pimp");
