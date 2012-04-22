@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+@import url(http://fonts.googleapis.com/css?family=Dosis|Great+Vibes);
+body{
+  font: 100% Arial normal, sans-serif;
+  background-color: #EEE;
+  background: url(images/contentbg.png);
+  color: #111;
+  border-top: 5px solid #D7E0E5;
+}
+p {
+}
+#wrapper {
+  margin: 0 auto;
+}
+.innerWrapper {
+  margin: 0 auto;
+  width: 900px;
+}
+#header {
+  width: 100%;
+  background-color: #0C5A81;
+  color: #FFF;
+  height: 79px;
+  border-bottom: 1px solid #E6E6E6;
+  text-align: center;
+  border-top: 1px solid #888;
+}
+#header h1{
+  text-indent: -5000px;
+  background: url(images/logo.png) no-repeat;
+  padding: 0;
+  width: 582px;
+  height: 80px;
+  margin-left: 159px;
+}
+#header h1 a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#subHead {
+  width: 100%;
+  background-color: #D7E0E5;
+  height: 20px;
+  border-bottom: 1px solid #888;
+  text-align: center;
+  padding: 5px 0;
+}
+#content {
+  width: 100%;
+  padding-top: 15px;
+}
+#leftCol {
+  height: 200px;
+  width: 425px;
+  margin-right: 46px;
+  float: left;
+  text-align: right;
+}
+button { 
+  padding: 5px 10px;
+  border: 1px solid #D84704;
+  box-shadow: 1px 1px 1px #888;
+  color: #FFF;
+  border-radius: 5px;
+  background: #d65f2c; /* Old browsers */
+  background: -moz-linear-gradient(top, #d65f2c 0%, #d84704 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d65f2c), color-stop(100%,#d84704)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d65f2c 0%,#d84704 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #d65f2c 0%,#d84704 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d65f2c 0%,#d84704 100%); /* IE10+ */
+  background: linear-gradient(top, #d65f2c 0%,#d84704 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d65f2c', endColorstr='#d84704',GradientType=0 ); /* IE6-9 */ /* IE6-9 */
+}
+#rightCol {
+  height: 200px;
+  width: 425px;
+  float: left;
+}
+textarea {
+  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 5px;
+  border: 1px solid #CCC;
+}
