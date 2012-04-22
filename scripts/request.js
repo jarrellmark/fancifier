@@ -8,12 +8,15 @@ $(document).ready(function(){
         type: "POST",
         url:  "fancify.php",
         data: "type=" + type + "&input=" + input,
-        success: function(){
+        success: function(response){
             alert("success!");
         }
       });
 	  
 	  return false;
 	});
+	
+	function HandleResponse
+	
 });
 -->

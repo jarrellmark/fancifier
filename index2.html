@@ -6,20 +6,6 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="scripts/request.js"></script>
-<script type="text/javascript">
-$(function(){
-    $('.radio').live('click', function(){
-        $('.radio').removeClass('selected');
-        $(this).addClass('selected');
-    });
-    $('input[type=submit]').live('click', function(){
-        var data = { "myRadioValue" : $('.radio.selected').text() };
-        $.post('myurl.com', data, function(result){ 
-            console.log('hooray!', result); 
-        });
-    });
-});
-</script>
 
 </head>
 <body>
@@ -49,7 +35,7 @@ $(function(){
         </form>
         </div>
         <div id="rightCol">
-          <textarea rows="20" cols="50" id="translation" placeholder="fancy text!" readonly="readonly"></textarea>
+          <textarea rows="20" cols="50" id="translation" placeholder="fancy text!"></textarea>
         </div>
       </div>
     </div>
