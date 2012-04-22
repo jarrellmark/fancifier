@@ -10,10 +10,11 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  //$('#mediaplayer').css("left","-2000px");
   $('#mediaContainer').hide();
   
   $('#twitterButton').click(function() {
+    $('#mediaContainer').hide();
+    
     $.ajax({
       type: "POST",
       url: "twitter.php",
@@ -30,7 +31,12 @@ $(document).ready(function(){
     $('#rightCol p').empty();
     //$('#rightCol p').append(input);
     
-    $('#mediaContainer').show();
+    if(type == 'fancify'){
+      $('#mediaContainer').hide();
+    }
+    else{
+      $('#mediaContainer').show();
+    }
         
     $.ajax({
       type: "POST",
@@ -59,7 +65,7 @@ $(document).ready(function(){
       </div>
     </div>
     <div id="content">
-      <div class="innerWrapper">      
+      <div class="innerWrapper"> 
         <div id="leftCol">
         <form name="fancify" id="fancify" method="POST">
           <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
@@ -78,17 +84,18 @@ $(document).ready(function(){
         jwplayer('combined').setup({
           'flashplayer': 'jwplayer/player.swf',
           'id': 'text2voice',
-          'width': '300',
+          'width': '1',
           'height': '24',
           'autostart': 'true',
           'file': 'combined.mp3',
+          'bufferlength': '8',
           'repeat': 'always',
           'controlbar': 'bottom'
         });
          jwplayer('music').setup({
           'flashplayer': 'jwplayer/player.swf',
           'id': 'backgroundMusic',
-          'width': '300',
+          'width': '1',
           'height': '24',
           'autostart': 'true',
           'file': 'background.mp3',
