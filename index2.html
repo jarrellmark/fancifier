@@ -10,7 +10,19 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $('#mediaplayer').css("left","-2000px");
+  //$('#mediaplayer').css("left","-2000px");
+  $('#mediaContainer').hide();
+  
+  $('#twitterButton').click(function() {
+    //$.('#mediaContainer').show();
+    $.ajax({
+      type: "POST",
+      url: "twitter.php",
+      success: function(response){
+        $('#text').value(response);
+      }
+    });
+  });
   
   $('#fancify').submit(function() {
     var input = $('#text').attr('value');
@@ -18,7 +30,7 @@ $(document).ready(function(){
     
     $('#rightCol p').empty();
     //$('#rightCol p').append(input);
-       
+        
     $.ajax({
       type: "POST",
       url: "fancify.php",
@@ -30,6 +42,9 @@ $(document).ready(function(){
     return false;
   });
 });
+  function twitterGrab() {
+    alert('hello');
+  }
 </script>
 
 </head>
@@ -47,14 +62,16 @@ $(document).ready(function(){
     </div>
     <div id="content">
       <div class="innerWrapper">
-      <!--<div id="mediaplayer"></div>
-      <div id="mediaployer"></div>-->
+      <div id="mediaContainer">
+        <div id="mediaplayer"></div>
+        <div id="mediaployer"></div>
+      </div>
 
-      <!--<script type="text/javascript">
+      <script type="text/javascript">
         jwplayer('mediaplayer').setup({
           'flashplayer': 'jwplayer/player.swf',
           'id': 'playerID',
-          'width': '560',
+          'width': '300',
           'height': '24',
           'autostart': 'true',
           'file': 'jwplayer/song.mp3',
@@ -63,24 +80,23 @@ $(document).ready(function(){
          jwplayer('mediaployer').setup({
           'flashplayer': 'jwplayer/player.swf',
           'id': 'playerID',
-          'width': '560',
+          'width': '300',
           'height': '24',
           'autostart': 'true',
           'file': 'jwplayer/song2.mp3',
           'controlbar': 'bottom'
         });
         
-      </script>-->
+      </script>
       
         <div id="leftCol">
         <form name="fancify" id="fancify" method="POST">
           <textarea rows="20" cols="50" id="text" placeholder="boring text..."></textarea>
           <input type="radio" class="radio" name="fancyType" value="fancify" CHECKED> Fancify
           <input type="radio" class="radio" name="fancyType" value="ghettofy"> Ghettofy
-          <input type="radio" class="radio" name="fancyType" value="rhymify"> Rhymify <br />
           <input type="submit" value="Translate" id="button"/>
-          <button type="button">grab from twitter</button>
         </form>
+        <button id="twitterButton" type="button">grab from twitter</button>
         
         </div>
         <div id="rightCol">
