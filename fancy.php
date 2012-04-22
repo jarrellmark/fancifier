@@ -6,7 +6,11 @@ function callThesaurus($word)
      $api_request = "http://words.bighugelabs.com/api/2/96538a1e361c4143a3d6c782b8667fc0/";
 
      $request = $api_request.$word."/php";
-     $data = file_get_contents($request);
+     $data = @file_get_contents($request);
+     if (strlen($data) == 0)
+     {
+        return NULL;
+     }
      return unserialize($data);
 
 }
@@ -15,6 +19,10 @@ function callThesaurus($word)
 function getFancySynonym($word)
 {
      $data = callThesaurus($word);
+     if (is_null($data) == TRUE)
+     {
+         return $word;
+     }
      $pos = array_keys($data);
      $syn = array();
      foreach($data as $key => $value)
